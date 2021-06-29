@@ -168,3 +168,52 @@
     margin-top: 1.3rem;
     line-height: 1.9rem;
 }
+
+/* POP-UP COPIADO */
+
+
+.popuptext {
+    visibility: hidden;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    background-color:var(--gray-dark);
+    color: var(--white);
+    text-align: center;
+    border-radius: .6rem;
+    padding: 2rem;
+    position: absolute;
+    z-index: 1;
+    top: 5.5rem;
+    /* bottom: -100%; */
+  }
+
+  /* Popup arrow */
+  .buttons .popuptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color:  transparent transparent var(--gray-dark) transparent ;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .buttons .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+

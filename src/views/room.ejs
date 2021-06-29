@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/room.css">
     <link rel="stylesheet" href="/styles/modal.css">
 
+
     <!--FONTS-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;500;700&display=swap"
@@ -27,11 +28,14 @@
             <a href="/">
                 <img src="/images/logo.svg" alt="Logo Rocket.Q">
             </a>
-
             <div class="buttons">
-                <div class="button outlined" id="room-id" data-id="<%= roomID %>" onclick="CopyCode()">
+                <div class="button outlined copy" onclick="PopUpOn()" onmouseout="sumiu(this)" id="room-id" data-id="<%= roomID %>">
                     #<%= roomID %>
                         <img src="/images/copy.svg" alt="Copiar código da sala">
+
+                        <!-- CRIANDO POP UP COPIADO -->
+                        <span class="popuptext" id="myPopup">ID copiado!</span>
+
                 </div>
 
                 <a href="/create-pass" class="button">
@@ -95,15 +99,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
                                         <% questionsRead.forEach(questionRead=> {%>
 
                                             <div class="question-wrapper read">
@@ -153,24 +148,38 @@
 
     </div>
 
-    <!-- <script>
-        function CopyCode() {
-            /* Pegar o campo de texto */
-            var CopyText = document.getElementById("room-id")
 
-            /* Select the text field */
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    <script>
 
-            /* Copy the text inside the text field */
-            document.execCommand("copy");
+    </script>
+    <!--   FIM DA MODAL   -->
 
-            /* Mensagem de resposta - sucesso */
-            alert("Código da sala copiado: " + copyText.value);
-        }
+    <!-- BOTÃO DE COPIAR ID-ROOM -->
+    <div class="room-inv">
+        <input type="text" name="id-inv" id="id-inv" class="sr-only" value="<%= roomID %>">
+    </div>
 
-        CopyCode()
-    </script> -->
+    <!-- Função Clique > copiar e popup -->
+
+    <script>
+        function PopUpOn() {
+
+            //pegar o texto
+            const copyText = document.getElementById('id-inv')
+
+            //selecionar o value do input
+            copyText.select()
+            copyText.setSelectionRange(0, 99999) //otimização para mobile
+
+            //copiar texto
+            document.execCommand("copy")
+
+            // quando clicar, abre a popup
+
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+            }
+    </script>
 
 </body>
 

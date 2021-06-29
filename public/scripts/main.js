@@ -42,22 +42,3 @@ function handleClick(event, check = true) {
     modal.open()
 }
 
-
-//Copiar  n° da sala
-
-function CopyCode(){
-    /* Pegar o campo de texto */
-    var CopyText = document.getElementById("room-id")
-
-    /* Select the text field */
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-    /* Copy the text inside the text field */
-    document.execCommand("copy");
-
-    /* Mensagem de resposta - sucesso */
-    alert("Código da sala  copiado: " + copyText.value);
-}
-
-CopyCode()
